@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Business | Kahil Group Companies</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+font-family:Arial,sans-serif;
+background:#ffffff;
+color:#111;
+line-height:1.6;
+}
+header{
+background:#000;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:4px solid #84cc16;
+position:sticky;
+top:0;
+z-index:1000;
+}
+.logo-section{
+display:flex;
+align-items:center;
+gap:15px;
+}
+.logo-section img{
+width:65px;
+}
+.logo-section h1{
+color:#fff;
+font-size:24px;
+}
+nav{
+display:flex;
+align-items:center;
+justify-content:flex-end;
+}
+nav ul{
+list-style:none;
+display:flex;
+align-items:center;
+gap:24px;
+padding:0;
+margin:0;
+}
+nav li{
+position:relative;
+}
+nav a{
+color:#fff;
+text-decoration:none;
+font-weight:600;
+display:inline-block;
+padding:10px 0;
+transition:color 0.25s ease, transform 0.25s ease;
+}
+nav a:hover,
+nav li:hover > a{
+color:#84cc16;
+}
+nav .dropdown-toggle::after{
+content:"▾";
+display:inline-block;
+margin-left:6px;
+font-size:0.65rem;
+transform:translateY(-1px);
+}
+nav .dropdown{
+position:absolute;
+top:calc(100% + 14px);
+left:0;
+min-width:240px;
+background:#111;
+border:1px solid rgba(132,204,22,0.24);
+border-radius:16px;
+padding:10px 0;
+opacity:0;
+visibility:hidden;
+transform:translateY(8px);
+transition:all 0.25s ease;
+box-shadow:0 24px 80px rgba(0,0,0,0.22);
+}
+nav li:hover .dropdown{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+nav .dropdown li{
+padding:0 16px;
+}
+nav .dropdown a{
+display:block;
+padding:10px 12px;
+color:#eee;
+font-weight:500;
+}
+nav .dropdown a:hover{
+color:#84cc16;
+background:rgba(132,204,22,0.08);
+border-radius:10px;
+}
+.hero{
+height:60vh;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('images/hero-banner.png');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+.hero-content h2{
+font-size:44px;
+color:#84cc16;
+margin-bottom:20px;
+}
+.hero-content p{
+font-size:18px;
+color:#fff;
+max-width:760px;
+margin:auto;
+}
+.hero-btn{
+display:inline-block;
+margin-top:30px;
+padding:15px 30px;
+background:#84cc16;
+color:#000;
+font-weight:bold;
+text-decoration:none;
+border-radius:8px;
+}
+section{
+padding:80px 8%;
+}
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+.section-title h2{
+font-size:42px;
+color:#16a34a;
+}
+.section-title p{
+color:#555;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.card{
+background:#f5f5f5;
+padding:30px;
+border-radius:12px;
+border-left:6px solid #84cc16;
+transition:0.3s;
+}
+.card:hover{
+transform:translateY(-5px);
+}
+.card h3{
+margin-bottom:15px;
+color:#16a34a;
+}
+.contact-box{
+background:#000;
+color:#fff;
+padding:50px;
+border-radius:15px;
+text-align:center;
+}
+.contact-box a{
+display:inline-block;
+margin-top:20px;
+background:#84cc16;
+color:#000;
+padding:14px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+footer{
+background:#000;
+color:#fff;
+padding:50px 8%;
+}
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+footer h3{
+color:#84cc16;
+margin-bottom:15px;
+}
+footer a{
+display:block;
+color:#ccc;
+text-decoration:none;
+margin-bottom:10px;
+}
+footer a:hover{
+color:#84cc16;
+}
+footer .social-link{
+display:inline-flex;
+align-items:center;
+gap:10px;
+color:#ccc;
+padding:12px 14px;
+margin-bottom:10px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
+}
+footer .social-link::before{
+content:"";
+width:34px;
+height:34px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+font-size:16px;
+}
+footer .social-instagram::before{content:"📷";}
+footer .social-linkedin::before{content:"in"; font-weight:bold;}
+footer .social-tiktok::before{content:"🎵";}
+footer .social-twitter::before{content:"🐦";}
+footer .social-link:hover{
+color:#84cc16;
+border-color:rgba(132,204,22,0.4);
+background:rgba(255,255,255,0.05);
+}
+.copy{
+text-align:center;
+margin-top:30px;
+color:#777;
+}
+@media(max-width:768px){
+header{
+flex-direction:column;
+padding:20px;
+}
+nav{
+margin-top:15px;
+}
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+gap:12px;
+}
+nav .dropdown{
+position:static;
+transform:none;
+opacity:1;
+visibility:visible;
+background:transparent;
+border:none;
+box-shadow:none;
+padding:0;
+}
+nav .dropdown a{
+padding:8px 0 8px 16px;
+}
+.hero{
+height:50vh;
+}
+.hero-content h2{
+font-size:32px;
+}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo-section">
+<img src="images/logo.png" alt="Kahil Logo">
+<h1>KAHIL GROUP</h1>
+</div>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="index.html#about">About</a></li>
+<li>
+<a href="businesses.html" class="dropdown-toggle">Our Business</a>
+<ul class="dropdown">
+<li><a href="#bakery">Kahil Bakery Company</a></li>
+<li><a href="#investments">Kahil Investments Group</a></li>
+<li><a href="#transportation">Kahil Transportation Company</a></li>
+<li><a href="#charity">Kahil Charity Foundation</a></li>
+</ul>
+</li>
+<li><a href="index.html#services">Services</a></li>
+<li><a href="index.html#products">Products</a></li>
+<li><a href="index.html#investments">Investments</a></li>
+<li><a href="index.html#careers">Careers</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+<section class="hero">
+<div class="hero-content">
+<h2>Our Business Portfolio</h2>
+<p>Kahil Group Companies is composed of four strong enterprises working together to deliver bakery, investment, transportation, and charitable services.</p>
+</div>
+</section>
+<section>
+<div class="section-title">
+<h2>Companies under Kahil Group</h2>
+<p>Each business delivers a specialized service while sharing a common mission of growth, quality, and community impact.</p>
+</div>
+<div class="grid">
+<div class="card" id="bakery">
+<h3>Kahil Bakery Company</h3>
+<p>Produces Hill Bread, Hill Snacks, and Hill Wheat Flour. Our bakery business focuses on quality ingredients, consistent production, and customer satisfaction.</p>
+</div>
+<div class="card" id="investments">
+<h3>Kahil Investments Group</h3>
+<p>Provides strategic investment support, business funding, and partnership development across the region to help companies grow and scale responsibly.</p>
+</div>
+<div class="card" id="transportation">
+<h3>Kahil Transportation Company</h3>
+<p>Offers reliable logistics, delivery, and transport services that ensure products move safely and efficiently throughout our markets.</p>
+</div>
+<div class="card" id="charity">
+<h3>Kahil Charity Foundation</h3>
+<p>Supports community initiatives, education, and sustainable development programs designed to improve lives and create positive social change.</p>
+</div>
+</div>
+</section>
+<section>
+<div class="section-title">
+<h2>Why Choose Our Business Page</h2>
+<p>This page explains the role of each company and shows how they are all proudly part of Kahil Group Companies.</p>
+</div>
+<div class="grid">
+<div class="card">
+<h3>Industry Focus</h3>
+<p>Each business is specialized for better service and deeper expertise in its sector.</p>
+</div>
+<div class="card">
+<h3>Shared Values</h3>
+<p>Our companies work with a shared commitment to quality, integrity, and local development.</p>
+</div>
+<div class="card">
+<h3>Regional Impact</h3>
+<p>We support communities with products, investment, transport solutions, and social programs.</p>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-grid">
+<div>
+<h3>Kahil Group</h3>
+<p>Empowering Growth Across industries and communities.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="index.html#about">About</a>
+<a href="businesses.html">Our Business</a>
+<a href="index.html#products">Products</a>
+</div>
+<div>
+<h3>Social Media</h3>
+<a href="#" class="social-link social-instagram">Instagram</a>
+<a href="#" class="social-link social-linkedin">LinkedIn</a>
+<a href="#" class="social-link social-tiktok">TikTok</a>
+<a href="#" class="social-link social-twitter">X / Twitter</a>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="index.html#contact">Contact</a>
+<a href="https://wa.me/256753386243">WhatsApp</a>
+</div>
+</div>
+<div class="copy">© 2026 Kahil Group Companies. All Rights Reserved.</div>
+</footer>
+</body>
+</html>
